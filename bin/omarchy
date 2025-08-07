@@ -1,12 +1,12 @@
 #!/bin/bash
 
-OMARCHY_VERSION=$(git -C ~/.local/share/omarchy describe --tags --abbrev=0 2>/dev/null)
-PATH="$PATH:$HOME/.local/share/omarchy/bin"
+ANARCHY_VERSION=$(git -C ~/.local/share/anarchy describe --tags --abbrev=0 2>/dev/null)
+PATH="$PATH:$HOME/.local/share/anarchy/bin"
 
 show_ascii_art() {
   clear
-  tte -i ~/.local/share/omarchy/logo.txt --frame-rate 640 --no-color expand
-  echo "                                                                          $OMARCHY_VERSION"
+  tte -i ~/.local/share/anarchy/logo.txt --frame-rate 640 --no-color expand
+  echo "                                                                          $ANARCHY_VERSION"
 }
 
 main_menu() {
@@ -17,12 +17,12 @@ main_menu() {
   case "$choice" in
   Theme) theme_menu ;;
   Font)
-    omarchy-font-menu
+    anarchy-font-menu
     ack_command
     main_menu
     ;;
   Update)
-    omarchy-update
+    anarchy-update
     main_menu
     ;;
   Setup) setup_menu ;;
@@ -35,9 +35,9 @@ theme_menu() {
   show_ascii_art
   local menu=("Pick" "Install" "Update" "Remove" "Back")
   local commands=(
-    "omarchy-theme-menu"
+    "anarchy-theme-menu"
     "install_theme_prompt"
-    "omarchy-theme-update"
+    "anarchy-theme-update"
     "remove_theme_prompt"
     "main_menu"
   )
@@ -61,7 +61,7 @@ install_theme_prompt() {
   local url
   url=$(gum input --placeholder="Git repo URL for theme" --header="")
   if [[ -n "$url" ]]; then
-    omarchy-theme-install "$url"
+    anarchy-theme-install "$url"
   fi
   theme_menu
 }
@@ -70,7 +70,7 @@ remove_theme_prompt() {
   local theme
   theme=$(gum input --placeholder="Theme name" --header="")
   if [[ -n "$theme" ]]; then
-    omarchy-theme-remove "$theme"
+    anarchy-theme-remove "$theme"
   fi
   theme_menu
 }
@@ -79,11 +79,11 @@ setup_menu() {
   show_ascii_art
   local menu=("Dropbox" "Steam" "Docker DBs" "Fingerprint sensor" "Fido2 device" "Back")
   local commands=(
-    "omarchy-setup-dropbox"
-    "omarchy-setup-steam"
+    "anarchy-setup-dropbox"
+    "anarchy-setup-steam"
     "setup_docker_dbs"
-    "omarchy-setup-fingerprint"
-    "omarchy-setup-fido2"
+    "anarchy-setup-fingerprint"
+    "anarchy-setup-fido2"
     "main_menu"
   )
   local choice
@@ -121,7 +121,7 @@ setup_docker_dbs() {
 }
 
 open_manual() {
-  setsid chromium --new-window --ozone-platform=wayland --app="https://manuals.omamix.org/2/the-omarchy-manual" >/dev/null 2>&1 &
+  setsid chromium --new-window --ozone-platform=wayland --app="https://manuals.omamix.org/2/the-anarchy-manual" >/dev/null 2>&1 &
   clear
 }
 

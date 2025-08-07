@@ -1,0 +1,12 @@
+ZSH_CONFIG_PATH=~/.local/share/anarchy/default/zsh
+
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+source $ZSH_CONFIG_PATH/p10k
+source $ZSH_CONFIG_PATH/shell
+source $ZSH_CONFIG_PATH/envs
+source $ZSH_CONFIG_PATH/aliases
+source $ZSH_CONFIG_PATH/functions
+source $ZSH_CONFIG_PATH/init

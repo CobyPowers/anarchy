@@ -1,6 +1,6 @@
 #!/bin/bash
 
-yay -S --noconfirm --needed \
-  hyprland hyprshot hyprpicker hyprlock hypridle hyprsunset polkit-gnome hyprland-qtutils \
-  walker-bin libqalculate waybar mako swaybg swayosd \
+paru -S --noconfirm --needed \
+  hyprland hyprshot hyprpicker hyprpaper hyprlock hypridle hyprsunset hyprland-qtutils polkit-gnome \
+  walker-bin libqalculate waybar mako swayosd \
   xdg-desktop-portal-hyprland xdg-desktop-portal-gtk

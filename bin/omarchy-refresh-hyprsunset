@@ -1,4 +1,4 @@
 #!/bin/bash
 
-omarchy-refresh-config hypr/hyprsunset.conf
-omarchy-restart-hyprsunset
+anarchy-refresh-config hypr/hyprsunset.conf
+anarchy-restart-hyprsunset

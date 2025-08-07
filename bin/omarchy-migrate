@@ -3,11 +3,11 @@
 set -e
 
 # Where we store an empty file for each migration that has already been performed.
-STATE_DIR="$HOME/.local/state/omarchy/migrations"
+STATE_DIR="$HOME/.local/state/anarchy/migrations"
 mkdir -p "$STATE_DIR"
 
 # Run any pending migrations
-for file in ~/.local/share/omarchy/migrations/*.sh; do
+for file in ~/.local/share/anarchy/migrations/*.sh; do
   filename=$(basename "$file")
 
   if [[ ! -f "$STATE_DIR/$filename" ]]; then

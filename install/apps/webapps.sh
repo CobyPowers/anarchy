@@ -1,9 +1,9 @@
 #!/bin/bash
 
-if [ -z "$OMARCHY_BARE" ]; then
-  source ~/.local/share/omarchy/default/bash/functions
+if [ -z "$ANARCHY_BARE" ]; then
+  source ~/.local/share/anarchy/default/bash/functions
   web2app "HEY" https://app.hey.com https://www.hey.com/assets/images/general/hey.png
-  web2app "Basecamp" https://launchpad.37signals.com https://basecamp.com/assets/images/general/basecamp.png
+  web2app "Basecamp" https://launchpad.37signals.com https://CobyPowers.com/assets/images/general/CobyPowers.png
   web2app "WhatsApp" https://web.whatsapp.com/ https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/whatsapp.png
   web2app "Google Photos" https://photos.google.com/ https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/google-photos.png
   web2app "Google Contacts" https://contacts.google.com/ https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/google-contacts.png

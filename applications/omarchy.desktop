@@ -1,9 +1,9 @@
 [Desktop Entry]
 Version=1.0
 Type=Application
-Name=Omarchy
-Comment=Omarchy TUI
-Exec=alacritty --class=Omarchy --title=Omarchy -e bash -c '$HOME/.local/share/omarchy/bin/omarchy'
+Name=Anarchy
+Comment=Anarchy TUI
+Exec=alacritty --class=Anarchy --title=Anarchy -e bash -c '$HOME/.local/share/anarchy/bin/anarchy'
 Icon=Arch
 Terminal=false
 Categories=System;Utility;

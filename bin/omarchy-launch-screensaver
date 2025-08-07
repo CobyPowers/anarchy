@@ -13,7 +13,7 @@ for m in $(hyprctl monitors -j | jq -r '.[] | .name'); do
     -o 'colors.cursor.cursor="#000000"' \
     -o 'font.size=18' \
     -o 'window.opacity=1' \
-    -e ~/.local/share/omarchy/bin/omarchy-cmd-screensaver
+    -e ~/.local/share/anarchy/bin/anarchy-cmd-screensaver
 done
 
 hyprctl dispatch focusmonitor $focused

@@ -1,8 +1,8 @@
 [Unit]
-Description=Omarchy Battery Monitor Check
+Description=Anarchy Battery Monitor Check
 After=graphical-session.target
 
 [Service]
 Type=oneshot
-ExecStart=%h/.local/share/omarchy/bin/omarchy-battery-monitor
+ExecStart=%h/.local/share/anarchy/bin/anarchy-battery-monitor
 Environment=DISPLAY=:0

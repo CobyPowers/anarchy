@@ -1,0 +1,12 @@
+[submodule "default/zsh/ohmyzsh"]
+	path = default/zsh/ohmyzsh
+	url = https://github.com/ohmyzsh/ohmyzsh
+[submodule "default/zsh/plugins/zsh-autosuggestions"]
+	path = default/zsh/plugins/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions
+[submodule "default/zsh/themes/powerlevel10k"]
+	path = default/zsh/themes/powerlevel10k
+	url = https://github.com/romkatv/powerlevel10k
+[submodule "default/zsh/plugins/zsh-syntax-highlighting"]
+	path = default/zsh/plugins/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting

@@ -1,15 +1,15 @@
 #!/bin/bash
 
-# omarchy-theme-set: Set a theme, specified by its name.
-# Usage: omarchy-theme-set <theme-name>
+# anarchy-theme-set: Set a theme, specified by its name.
+# Usage: anarchy-theme-set <theme-name>
 
 if [[ -z "$1" ]]; then
-  echo "Usage: omarchy-theme-set <theme-name>" >&2
+  echo "Usage: anarchy-theme-set <theme-name>" >&2
   exit 1
 fi
 
-THEMES_DIR="$HOME/.config/omarchy/themes/"
-CURRENT_THEME_DIR="$HOME/.config/omarchy/current/theme"
+THEMES_DIR="$HOME/.config/anarchy/themes/"
+CURRENT_THEME_DIR="$HOME/.config/anarchy/current/theme"
 
 THEME_NAME="$1"
 THEME_PATH="$THEMES_DIR/$THEME_NAME"
@@ -24,7 +24,7 @@ fi
 ln -nsf "$THEME_PATH" "$CURRENT_THEME_DIR"
 
 # Change gnome modes
-if [[ -f ~/.config/omarchy/current/theme/light.mode ]]; then
+if [[ -f ~/.config/anarchy/current/theme/light.mode ]]; then
   gsettings set org.gnome.desktop.interface color-scheme "prefer-light"
   gsettings set org.gnome.desktop.interface gtk-theme "Adwaita"
 else
@@ -33,8 +33,8 @@ else
 fi
 
 # Change gnome icon theme color
-if [[ -f ~/.config/omarchy/current/theme/icons.theme ]]; then
-  gsettings set org.gnome.desktop.interface icon-theme "$(<~/.config/omarchy/current/theme/icons.theme)"
+if [[ -f ~/.config/anarchy/current/theme/icons.theme ]]; then
+  gsettings set org.gnome.desktop.interface icon-theme "$(<~/.config/anarchy/current/theme/icons.theme)"
 else
   gsettings set org.gnome.desktop.interface icon-theme "Yaru-blue"
 fi
@@ -44,11 +44,11 @@ touch "$HOME/.config/alacritty/alacritty.toml"
 
 # Restart components to apply new theme
 pkill -SIGUSR2 btop
-"$HOME/.local/share/omarchy/bin/omarchy-restart-waybar"
+"$HOME/.local/share/anarchy/bin/anarchy-restart-waybar"
 pkill swayosd-server
 setsid uwsm app -- swayosd-server &>/dev/null &
 makoctl reload
 hyprctl reload
 
 # Set new background
-"$HOME/.local/share/omarchy/bin/omarchy-theme-bg-next"
+"$HOME/.local/share/anarchy/bin/anarchy-theme-bg-next"

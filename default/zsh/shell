@@ -1,0 +1,26 @@
+ZSH=~/.local/share/anarchy/default/zsh/ohmyzsh
+ZSH_CUSTOM=~/.local/share/anarchy/default/zsh
+ZSH_THEME='powerlevel10k/powerlevel10k'
+
+plugins=(
+    git \
+    docker \
+    docker-compose \
+    extract \
+    universalarchive \
+    web-search \
+    colored-man-pages \
+    colorize \
+    zsh-autosuggestions \
+    zsh-syntax-highlighting
+)
+
+zstyle ':omz:update' mod auto
+zstyle ':omz:update' frequency 7
+zstyle ':omz:update' verbosity silent
+
+COMPLETION_WAITING_DOTS=true
+ENABLE_CORRECTION=true
+HIST_STAMPS="mm/dd/yyyy"
+
+source $ZSH/oh-my-zsh.sh

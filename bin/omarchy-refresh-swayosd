@@ -1,5 +1,5 @@
 #!/bin/bash
 
-omarchy-refresh-config swayosd/config.toml
-omarchy-refresh-config swayosd/style.css
-omarchy-restart-swayosd
+anarchy-refresh-config swayosd/config.toml
+anarchy-refresh-config swayosd/style.css
+anarchy-restart-swayosd
