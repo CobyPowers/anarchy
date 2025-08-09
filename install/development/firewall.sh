@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if ! command -v ufw &>/dev/null; then
-  yay -S --noconfirm --needed ufw ufw-docker
+  paru -S --noconfirm --needed ufw ufw-docker
 
   # Allow nothing in, everything out
   sudo ufw default deny incoming
@@ -10,9 +10,6 @@ if ! command -v ufw &>/dev/null; then
   # Allow ports for LocalSend
   sudo ufw allow 53317/udp
   sudo ufw allow 53317/tcp
-
-  # Allow SSH in
-  sudo ufw allow 22/tcp
 
   # Allow Docker containers to use DNS on host
   sudo ufw allow in on docker0 to any port 53

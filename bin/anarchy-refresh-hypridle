@@ -1,0 +1,4 @@
+#!/bin/bash
+
+anarchy-refresh-config hypr/hypridle.conf
+anarchy-restart-hypridle

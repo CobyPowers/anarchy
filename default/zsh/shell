@@ -10,7 +10,6 @@ plugins=(
     universalarchive \
     web-search \
     colored-man-pages \
-    colorize \
     zsh-autosuggestions \
     zsh-syntax-highlighting
 )

@@ -3,7 +3,7 @@ Version=1.0
 Type=Application
 Name=Anarchy
 Comment=Anarchy TUI
-Exec=alacritty --class=Anarchy --title=Anarchy -e bash -c '$HOME/.local/share/anarchy/bin/anarchy'
+Exec=kitty --class=Anarchy --title=Anarchy "$HOME/.local/share/anarchy/bin/anarchy"
 Icon=Arch
 Terminal=false
 Categories=System;Utility;

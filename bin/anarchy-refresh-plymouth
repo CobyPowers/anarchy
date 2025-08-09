@@ -1,0 +1,6 @@
+#!/bin/bash
+
+if [[ "$1" == "-y" ]] || gum confirm "Refresh Plymouth theme? This will replace your current startup screen with Anarchy defaults."; then
+  sudo cp ~/.local/share/anarchy/default/plymouth/* /usr/share/plymouth/themes/anarchy/
+  sudo plymouth-set-default-theme -R anarchy
+fi
