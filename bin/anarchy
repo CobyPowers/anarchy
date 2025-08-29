@@ -12,7 +12,7 @@ show_ascii_art() {
 main_menu() {
   show_ascii_art
 
-  local options=("Theme" "Font" "Setup" "Update" "Manual" "Exit")
+  local options=("Theme" "Font" "Setup" "Update" "Exit")
   choice=$(printf "%s\n" "${options[@]}" | gum choose --header "") || exit 0
   case "$choice" in
   Theme) theme_menu ;;
@@ -26,14 +26,14 @@ main_menu() {
     main_menu
     ;;
   Setup) setup_menu ;;
-  Manual) open_manual ;;
   Exit) clear && exit 0 ;;
   esac
 }
 
 theme_menu() {
   show_ascii_art
-  local menu=("Pick" "Install" "Update" "Remove" "Back")
+
+  local options=("Pick" "Install" "Update" "Remove" "Back")
   local commands=(
     "anarchy-theme-menu"
     "install_theme_prompt"
@@ -42,9 +42,9 @@ theme_menu() {
     "main_menu"
   )
   local choice
-  choice=$(printf "%s\n" "${menu[@]}" | gum choose --header="Theme") || main_menu
-  for i in "${!menu[@]}"; do
-    if [[ "${menu[$i]}" == "$choice" ]]; then
+  choice=$(printf "%s\n" "${options[@]}" | gum choose --header="Theme") || main_menu
+  for i in "${!options[@]}"; do
+    if [[ "${options[$i]}" == "$choice" ]]; then
       if [[ "$choice" == "Back" ]]; then
         main_menu
       else
@@ -58,28 +58,27 @@ theme_menu() {
 }
 
 install_theme_prompt() {
-  local url
-  url=$(gum input --placeholder="Git repo URL for theme" --header="")
+  local url=$(gum input --placeholder="Git repo URL for theme" --header="")
   if [[ -n "$url" ]]; then
     anarchy-theme-install "$url"
   fi
+
   theme_menu
 }
 
 remove_theme_prompt() {
-  local theme
-  theme=$(gum input --placeholder="Theme name" --header="")
+  local theme=$(gum input --placeholder="Theme name" --header="")
   if [[ -n "$theme" ]]; then
     anarchy-theme-remove "$theme"
   fi
+
   theme_menu
 }
 
 setup_menu() {
   show_ascii_art
-  local menu=("Dropbox" "Steam" "Docker DBs" "Fingerprint sensor" "Fido2 device" "Back")
+  local options=("Steam" "Docker DBs" "Fingerprint Sensor" "Fido2 Device" "Back")
   local commands=(
-    "anarchy-setup-dropbox"
     "anarchy-setup-steam"
     "setup_docker_dbs"
     "anarchy-setup-fingerprint"
@@ -87,9 +86,9 @@ setup_menu() {
     "main_menu"
   )
   local choice
-  choice=$(printf "%s\n" "${menu[@]}" | gum choose --header="Setup") || main_menu
-  for i in "${!menu[@]}"; do
-    if [[ "${menu[$i]}" == "$choice" ]]; then
+  choice=$(printf "%s\n" "${options[@]}" | gum choose --header="Setup") || main_menu
+  for i in "${!options[@]}"; do
+    if [[ "${options[$i]}" == "$choice" ]]; then
       if [[ "$choice" == "Back" ]]; then
         main_menu
       else
@@ -103,8 +102,8 @@ setup_menu() {
 }
 
 setup_docker_dbs() {
-  options=("MariaDB" "MySQL" "Redis" "PostgreSQL")
-  choices=$(printf "%s\n" "${options[@]}" | gum choose --no-limit --header "Select databases (space to select, return to install, esc to cancel)") || main_menu
+  local options=("MariaDB" "MySQL" "Redis" "PostgreSQL")
+  local choices=$(printf "%s\n" "${options[@]}" | gum choose --no-limit --header "Select databases (space to select, return to install, esc to cancel)") || main_menu
 
   if [[ -n "$choices" ]]; then
     for db in $choices; do
@@ -118,11 +117,6 @@ setup_docker_dbs() {
   fi
 
   main_menu
-}
-
-open_manual() {
-  setsid chromium --new-window --ozone-platform=wayland --app="https://manuals.omamix.org/2/the-anarchy-manual" >/dev/null 2>&1 &
-  clear
 }
 
 ack_command() {

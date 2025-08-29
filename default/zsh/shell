@@ -22,4 +22,13 @@ COMPLETION_WAITING_DOTS=true
 ENABLE_CORRECTION=true
 HIST_STAMPS="mm/dd/yyyy"
 
+# Create a place to store user-specific scripts
+if [ -d ~/.zsh-scripts ]; then
+  for sh in ~/.zsh-scripts/*.sh; do
+    source "$sh"
+  done
+else
+  mkdir ~/.zsh-scripts
+fi
+
 source $ZSH/oh-my-zsh.sh
