@@ -1,5 +1,5 @@
 export ANARCHY_PATH=~/.local/share/anarchy
-export PATH="$PATH:$HOME/.local/bin:$ANARCHY_PATH"
+export PATH="$PATH:$HOME/.local/bin:$ANARCHY_PATH/bin:$HOME/.local/share/bob/nvim-bin"
 
 # CLI
 export EDITOR='nvim'

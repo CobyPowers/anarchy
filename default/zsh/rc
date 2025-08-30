@@ -1,12 +1,5 @@
 ZSH_CONFIG_PATH=~/.local/share/anarchy/default/zsh
 
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-PATH="$PATH:$HOME/.local/share/bob/nvim-bin"
-
-source $ZSH_CONFIG_PATH/p10k
 source $ZSH_CONFIG_PATH/shell
 source $ZSH_CONFIG_PATH/envs
 source $ZSH_CONFIG_PATH/aliases
